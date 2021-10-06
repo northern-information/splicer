@@ -1,1 +1,1 @@
-#[🧬](https://l.llllllll.co/splicer)
+# [🧬](https://l.llllllll.co/splicer)
