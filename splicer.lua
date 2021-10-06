@@ -56,12 +56,12 @@ function init()
   -- create the adenine/thymine pattern
   at_pattern = splicer_lattice:new_pattern{
     action = function() at() end,
-    division = div
+    division = at_div
   }
   -- create the guanine/cytosine pattern
   gc_pattern = splicer_lattice:new_pattern{
     action = function() gc() end,
-    division = div
+    division = gc_div
   }
   -- create a utility pattern for housekeeping
   utility_pattern = splicer_lattice:new_pattern{
