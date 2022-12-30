@@ -53,18 +53,18 @@ function init()
   params:set("clock_tempo", tempo)
   -- create a default lattice
   splicer_lattice = l:new()
-  -- create the adenine/thymine pattern
-  at_pattern = splicer_lattice:new_pattern{
+  -- create the adenine/thymine sprocket
+  at_sprocket = splicer_lattice:new_sprocket{
     action = function() at() end,
     division = at_div
   }
-  -- create the guanine/cytosine pattern
-  gc_pattern = splicer_lattice:new_pattern{
+  -- create the guanine/cytosine sprocket
+  gc_sprocket = splicer_lattice:new_sprocket{
     action = function() gc() end,
     division = gc_div
   }
-  -- create a utility pattern for housekeeping
-  utility_pattern = splicer_lattice:new_pattern{
+  -- create a utility sprocket for housekeeping
+  utility_sprocket = splicer_lattice:new_sprocket{
     action = function() utility() end,
     division = 1/16
   }
@@ -100,11 +100,11 @@ function utility()
   -- check for tempo updates
   params:set("clock_tempo", tempo)
   -- might be fun to turn the divs into Sequins ;)
-  if (at_pattern.division ~= at_div) then
-    at_pattern:set_division(at_div)
+  if (at_sprocket.division ~= at_div) then
+    at_sprocket:set_division(at_div)
   end
-  if (at_pattern.division ~= gc_div) then
-    gc_pattern:set_division(gc_div)
+  if (at_sprocket.division ~= gc_div) then
+    gc_sprocket:set_division(gc_div)
   end
 end
 
@@ -128,8 +128,8 @@ function tutorial()
     print("This is an eduscript for sequins and lattice.")
   hr()
     print("DNA shall be our metaphor for this lesson.")
-    print("DNA is a double helix, so we shall have two patterns attached to one instance of the \"lattice\" core sequencer.")
-    print("(There is also a third \"utility\" pattern.)")
+    print("DNA is a double helix, so we shall have two sprockets attached to one instance of the \"lattice\" core sequencer.")
+    print("(There is also a third \"utility\" sprocket.)")
     print("DNA pairs adenine with thymine and guanine with cytosine, so we shall have four instances of \"Sequins.\"")
   hr()
     print("That's where the metaphor ends!")
